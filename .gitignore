@@ -1,0 +1,3 @@
+server/settings_secret.py
+*.pyc
+__pycache__
