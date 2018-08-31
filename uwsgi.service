@@ -1,0 +1,15 @@
+[Unit]
+Description=uWSGI Emperor service
+After=syslog.target
+
+[Service]
+ExecStart=/usr/bin/uwsgi --emperor /etc/uwsgi/apps-enabled --logto /var/log/glossary.log --uid=www-data --gid=www-data
+WorkingDirectory=/usr/local/ge
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target

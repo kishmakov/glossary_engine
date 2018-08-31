@@ -2,17 +2,20 @@
 
 nginx, python3.5
 
-## Install pip3
+## Install virtualenv
 
 ```bash
-sudo apt-get install python3-pip
+pip3 install virtualenv
 ```
 
 ## Install Django
 
 ```bash
-sudo pip3 install Django
-sudo pip3 install django-analytical
+virtualenv env
+source env/bin/activate
+python3 -m pip install --upgrade pip
+pip install Django
+pip install django-analytical
 ```
 
 ## Install and configure UWSGI
@@ -30,14 +33,8 @@ sudo chmod 644 /usr/lib/uwsgi/plugins/python35_plugin.so
 ```bash
 sudo ln -s /path/to/proj /usr/local/ge/
 sudo ln -s /usr/local/ge/glossary_nginx.conf /etc/nginx/sites-available/glossary_nginx.conf
+sudo ln -s /usr/local/ge/uwsgi.service /etc/systemd/system/uwsgi.service
 ```
-
-Add
-```
-/usr/bin/uwsgi --daemonize /var/log/glossary_uwsgi.log --ini /usr/local/ge/glossary_uwsgi.ini
-```
-
-to /etc/rc.local
 
 ## Start
 

@@ -2,3 +2,4 @@ server/settings_secret.py
 *.pyc
 __pycache__
 secrets.py
+env
