@@ -3,3 +3,4 @@ server/settings_secret.py
 __pycache__
 secrets.py
 env
+ct

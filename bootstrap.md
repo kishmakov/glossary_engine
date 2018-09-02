@@ -11,7 +11,7 @@ pip3 install virtualenv
 ## Install Django
 
 ```bash
-virtualenv env
+virtualenv -p python3 env
 source env/bin/activate
 python3 -m pip install --upgrade pip
 pip install Django
@@ -34,11 +34,14 @@ sudo chmod 644 /usr/lib/uwsgi/plugins/python35_plugin.so
 sudo ln -s /path/to/proj /usr/local/ge/
 sudo ln -s /usr/local/ge/glossary_nginx.conf /etc/nginx/sites-available/glossary_nginx.conf
 sudo ln -s /usr/local/ge/uwsgi.service /etc/systemd/system/uwsgi.service
+sudo ln -s /usr/local/ge/glossary_uwsgi.ini /etc/uwsgi/apps-available/glossary_uwsgi.ini
+sudo ln -s /etc/uwsgi/apps-available/glossary_uwsgi.ini /etc/uwsgi/apps-enabled/glossary_uwsgi.ini
+sudo ln -s /path/to/ct_sources/ /usr/local/ge/ct
 ```
 
 ## Start
 
 ```bash
-uwsgi /usr/local/ge/glossary_uwsgi.ini
-sudo chmod 777 /tmp/glossary.sock
+sudo service uwsgi start
+sudo service nginx start
 ```
