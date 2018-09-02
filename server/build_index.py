@@ -48,13 +48,21 @@ def get_descriptions():
 
 
 def build_index(descriptions, lang):
+    index = {}
     authors = {}
     for description in descriptions:
         author_id = description['id'].replace(' ', '_')
         author_name = description['author'][lang]
         authors[author_id] = author_name
+        texts = []
+        for text_id, text_desc in description['texts'].items():
+            if lang in text_desc:
+                texts.append({'id': text_id.replace(' ', '_'), 'name': text_desc[lang]['name']})
 
-    index = {'authors': authors}
+        index[author_id] = texts
+
+
+    index['authors'] = authors
     with open('index_{0}.json'.format(lang), 'w') as index_file:
         index_file.write(json.dumps(index, indent=4, sort_keys=True))
 

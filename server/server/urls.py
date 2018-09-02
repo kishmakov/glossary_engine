@@ -5,7 +5,8 @@ from server import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'^(?P<lang>[a-z]{2})/', views.index_view),
+    re_path(r'^(?P<lang>[a-z]{2})/$', views.index_view),
+    re_path(r'^(?P<lang>[a-z]{2})/author/(?P<author_id>[A-Z_a-z]+)/$', views.author_view),
     path('', RedirectView.as_view(url='ru/', permanent=True))
 ]
 

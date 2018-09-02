@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ author.name  }}. {{ loc_compositions }}.</h1>
+    <br/>
+    {% for text in texts %}
+        <h2>{{ text.name }}</h2> <br/>
+    {% endfor %}
+{% endblock %}
