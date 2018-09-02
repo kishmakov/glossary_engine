@@ -36,7 +36,7 @@ sudo ln -s /usr/local/ge/glossary_nginx.conf /etc/nginx/sites-available/glossary
 sudo ln -s /usr/local/ge/uwsgi.service /etc/systemd/system/uwsgi.service
 sudo ln -s /usr/local/ge/glossary_uwsgi.ini /etc/uwsgi/apps-available/glossary_uwsgi.ini
 sudo ln -s /etc/uwsgi/apps-available/glossary_uwsgi.ini /etc/uwsgi/apps-enabled/glossary_uwsgi.ini
-sudo ln -s /path/to/ct_sources/ /usr/local/ge/ct
+sudo ln -s /path/to/ct_sources/ /usr/local/ge/gt
 ```
 
 ## Start
