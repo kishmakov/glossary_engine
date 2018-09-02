@@ -31,17 +31,19 @@ sudo chmod 644 /usr/lib/uwsgi/plugins/python35_plugin.so
 ## Links
 
 ```bash
-sudo ln -s /path/to/proj /usr/local/ge/
+sudo ln -s /path/to/proj /usr/local/ge
 sudo ln -s /usr/local/ge/glossary_nginx.conf /etc/nginx/sites-available/glossary_nginx.conf
 sudo ln -s /usr/local/ge/uwsgi.service /etc/systemd/system/uwsgi.service
 sudo ln -s /usr/local/ge/glossary_uwsgi.ini /etc/uwsgi/apps-available/glossary_uwsgi.ini
 sudo ln -s /etc/uwsgi/apps-available/glossary_uwsgi.ini /etc/uwsgi/apps-enabled/glossary_uwsgi.ini
-sudo ln -s /path/to/ct_sources/ /usr/local/ge/gt
+sudo ln -s /path/to/glossary_texts_sources /usr/local/ge/gt
+sudo ln -s /path/to/glossary_texts /usr/local/ge/server/gt
 ```
 
 ## Start
 
 ```bash
+cd /usr/local/ge/server/ && python3 build_index.py
 sudo service uwsgi start
 sudo service nginx start
 ```

@@ -10,5 +10,8 @@
 
 <body>
     {{ hi }}
+    {% for author in authors %}
+        <a href='/{{ lang }}/authors/{{ author.id }}/'>{{ author.name }}</a>
+    {% endfor %}
 </body>
 </html>
