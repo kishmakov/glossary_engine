@@ -2,11 +2,11 @@
 
 {% block content %}
 <div class="row">
-	{% for lang in langs %}
-	<a href='/{{ lang.code }}/'>
-		<div class="col-sm-6 col-lg-4 col-12 text-center align-middle">
-				<h1><img src="/static/{{ lang.flag }}" style="height: 0.75em; vertical-align: middle"/> {{ lang.selfname }}</h1>
-	    </div>
+    {% for lang in langs %}
+    <a href='/{{ lang.code }}/'>
+        <div class="col-sm-6 col-lg-4 col-12 text-center align-middle div-button">
+                <h1><img src="/static/{{ lang.flag }}" style="height: 0.75em; vertical-align: middle"/> {{ lang.selfname }}</h1>
+        </div>
     </a>
     {% endfor %}
 </div>

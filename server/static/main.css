@@ -47,3 +47,15 @@ span.verse {
     font-family: "Loaded Ucs";
 }
 
+div.div-button {
+    background-color: #f8f9fa;
+}
+
+div.div-button:hover,
+div.div-button:focus {
+    background-color: #d9edf7;
+}
+
+body {
+  margin: 50px 70px 50px 70px;
+}
