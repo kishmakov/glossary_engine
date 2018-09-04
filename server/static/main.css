@@ -1,4 +1,4 @@
-img.menu {
+/*img.menu {
     height: 32px;
     cursor: pointer;
 }
@@ -46,6 +46,16 @@ span.verse {
 .font-chu {
     font-family: "Loaded Ucs";
 }
+*/
+body {
+    font-family: Arial;
+    font-size: 20px;
+    margin: 20px 70px 50px 20px;
+}
+
+div {
+    padding: 10px 0 10px 0;
+}
 
 div.div-button {
     background-color: #f8f9fa;
@@ -56,6 +66,3 @@ div.div-button:focus {
     background-color: #d9edf7;
 }
 
-body {
-  margin: 50px 70px 50px 70px;
-}

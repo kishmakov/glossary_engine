@@ -6,6 +6,13 @@
         <h1>{{ header }}</h1>
     </div>
 </div>
+<div class="row">
+	{% for item in loc_about %}
+    <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-10 col-offset-1">
+        <p>{{ item | safe }}</p>
+    </div>
+    {% endfor %}
+</div>
 <hr/>
 <div class="row">
     <div class="col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 col-6 col-offset-3 text-center align-middle">
