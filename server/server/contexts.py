@@ -5,6 +5,13 @@ HI_ID = 1
 LIST_ID = 2
 
 
+def language_context():
+    langs = []
+    for code, localization in localizations.items():
+        langs.append({'code': code, 'selfname': localization['loc_selfname']})
+    return {'langs': langs}
+
+
 def index_context(lang, index):
     authors = []
     for author_id, author_name in index['authors'].items():

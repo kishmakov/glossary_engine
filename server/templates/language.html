@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+	{% for lang in langs %}
+	<div class="col-md-3 col-lg-4">
+		<a href='/{{ lang.code }}/'><h1>{{ lang.selfname }}</h1></a><br/>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
