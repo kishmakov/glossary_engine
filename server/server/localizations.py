@@ -12,17 +12,17 @@ localization_en = {
         (
             'This site is a wrapper for a repository '
             '<a href="https://github.com/kishmakov/glossary_texts">glossary_texts</a>, '
-            'designed for simplicity of reading. In the repository I collected maximally '
-            'possible number of texts related to orthodox christianity doctrine.'
+            'designed for simplicity of its reading. In this repository I\'ve collected maximal '
+            'possible number of texts, related to orthodox christianity doctrine.'
         ),
         (
             'Repository is open for everyone who has interest. You can contribute to it at '
             'will: either with '
             '<a href="https://help.github.com/articles/about-pull-requests/">pull request</a> '
-            'or by sending the text to me directly.'
+            'or by sending the text directly to me.'
         ),
         (
-            'Being an editor of repositiry, I\'m responsible for texts selection. Therefor '
+            'Being an editor of the repositiry, I\'m responsible for texts selection. Therefor '
             'I ask you to discuss with me propriety of new text prior to do any work. You could '
             'reach me <a href="https://vk.com/shmakov">at vk.com</a>, '
             '<a href="https://t.me/KirillShmakov">via telegram</a> or with e-mail: shmakir@yandex.ru.'
