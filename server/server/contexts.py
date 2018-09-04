@@ -1,4 +1,26 @@
+from django.http import Http404
+
 from server.localizations import localizations
+
+from index_el import index as index_el
+from index_en import index as index_en
+from index_ru import index as index_ru
+
+
+indexes = {
+    'el': index_el,
+    'en': index_en,
+    'ru': index_ru,
+}
+
+
+def prepare_lang_context(lang):
+    if not lang in localizations:
+        raise Http404('Requested lang "{0}" is not supported.'.format(lang))
+
+    context = localizations[lang]
+    context['lang'] = lang
+    return context, indexes[lang]
 
 
 def language_context():
@@ -8,22 +30,17 @@ def language_context():
     return {'langs': langs}
 
 
-def index_context(lang, index):
-    authors = []
-    for author_id, author_name in index['authors'].items():
-        authors.append({'id': author_id, 'name': author_name})
-
-    context = localizations[lang]
-    context['authors'] = authors
-    context['lang'] = lang
+def index_context(lang):
+    context, index = prepare_lang_context(lang)
+    context['authors'] = index['authors']
     context['header'] = context['loc_project_name']
     return context
 
 
-def author_context(lang, index, author_id):
-    context = localizations[lang]
-    context['author'] = {'name': index['authors'][author_id], 'id': author_id}
-    context['lang'] = lang
-    context['header'] = index['authors'][author_id]
-    context['texts'] = index[author_id]
+def author_context(lang, author_id):
+    context, index = prepare_lang_context(lang)
+    context['author_id'] = author_id
+    context['author_name'] = index['author'][author_id]['name']
+    context['header'] = context['author_name']
+    context['texts'] = index['author'][author_id]['texts']
     return context

@@ -1,9 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{{ author.name  }}. {{ loc_compositions }}.</h1>
-    <br/>
+<div class="row">
+    <div class="col-md-6 col-md-offset-1 col-lg-6 col-lg-offset-1 col-6 col-offset-1 align-middle">
+        <h1>{{ author_name  }}</h1>
+    </div>
+</div>
+<hr/>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 col-6 col-offset-3 text-center align-middle">
+        <h2>{{ loc_compositions }}.</h2>
+    </div>
+</div>
+<div class="row">
     {% for text in texts %}
-        <h2>{{ text.name }}</h2> <br/>
+    <a href='/{{ lang }}/text/{{ text.id }}/'>
+        <div class="col-md-4 col-sm-6 text-center align-middle div-button">
+            <h3>{{ text.name }}</h3>
+        </div>
+    </a>
     {% endfor %}
+</div>
 {% endblock %}

@@ -2,7 +2,7 @@ server/settings_secret.py
 *.pyc
 __pycache__
 secrets.py
-index_*.json
+index_*.py
 .idea
 env
 gt

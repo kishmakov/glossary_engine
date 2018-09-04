@@ -2,32 +2,10 @@
 
 import json
 import os
-import subprocess
-import sys
 import string
 
 INTERFACE_LANGS = ['el', 'en', 'ru']
 
-
-# def collect_lines(fn):
-#     lines = set()
-#
-#     for user in os.listdir(HOME):
-#         homedir = HOME + '/' + user
-#         if not os.path.isdir(homedir):
-#             continue
-#
-#         bashrc = homedir + '/.bash_history'
-#         if not os.path.isfile(bashrc):
-#             continue
-#
-#         with open(bashrc) as f:
-#             for line in f.read().splitlines():
-#                 lines.add(line)
-#
-#     with open(output, 'w') as dst:
-#         for line in sorted(list(lines)):
-#             dst.write(line + '\n')
 
 def get_descriptions():
     descriptions = []
@@ -48,23 +26,37 @@ def get_descriptions():
 
 
 def build_index(descriptions, lang):
-    index = {}
     authors = {}
     for description in descriptions:
         author_id = description['id'].replace(' ', '_')
-        author_name = description['author'][lang]
-        authors[author_id] = author_name
         texts = []
         for text_id, text_desc in description['texts'].items():
             if lang in text_desc:
                 texts.append({'id': text_id.replace(' ', '_'), 'name': text_desc[lang]['name']})
 
-        index[author_id] = texts
+        authors[author_id] = {'name': description['author'][lang], 'texts': texts}
 
+    with open('index_{0}.py'.format(lang), 'w') as index_file:
+        index_file.write('authors = [\n')
+        for id, desc in sorted(authors.items()):
+            index_file.write('    {{"id": "{0}", "name": "{1}"}},\n'.format(id, desc['name']))
+        index_file.write(']\n')
 
-    index['authors'] = authors
-    with open('index_{0}.json'.format(lang), 'w') as index_file:
-        index_file.write(json.dumps(index, indent=4, sort_keys=True))
+        index_file.write('author =  {\n')
+        for id, desc in sorted(authors.items()):
+            index_file.write('    "{0}": {{\n'.format(id))
+            index_file.write('        "name": "{0}",\n'.format(desc['name']))
+            index_file.write('        "texts": [\n'.format(desc['name']))
+            for text in desc['texts']:
+                index_file.write('            {{"id": "{0}", "name": "{1}"}},\n'.format(text['id'], text['name']))
+            index_file.write('        ],\n')
+            index_file.write('    },\n')
+        index_file.write('}\n')
+
+        index_file.write('index =  {\n')
+        index_file.write('    "authors": authors,\n')
+        index_file.write('    "author": author,\n')
+        index_file.write('}\n')
 
 
 if __name__ == '__main__':
