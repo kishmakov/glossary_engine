@@ -1,0 +1,49 @@
+img.menu {
+    height: 32px;
+    cursor: pointer;
+}
+
+.verse {
+    padding-left: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.verse:hover {
+    background-color: #fcf8e3;
+}
+
+.specified-verse {
+    cursor: pointer;
+    background-color: #d9edf7;
+    border-radius: 3px;
+    padding-left: 5px;
+}
+
+.specification {
+    background-color: #f5f5f5;
+    border-radius: 3px;
+    padding-left: 5px;
+    border: 2px solid #d9edf7;
+}
+
+@font-face {
+    font-family: "Loaded Ucs";
+    src: url("HirmIEUcs8.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+span.verse {
+    padding-left: 0;
+    font-size: 13.5pt;
+}
+
+.font-la, .font-gr,.font-ru {
+    font-family: Arial;
+}
+
+.font-chu {
+    font-family: "Loaded Ucs";
+}
+
