@@ -4,6 +4,7 @@ localization_el = {
     'loc_project_name': 'Γλωσσάριο στα ελληνικά',
     'loc_selfname': 'Ελληνικά',
     'loc_welcome': 'Καλημέρα',
+    'loc_flag': 'flag_greek.png',
 }
 
 localization_en = {
@@ -12,6 +13,7 @@ localization_en = {
     'loc_project_name': 'Glossary in English',
     'loc_selfname': 'English',
     'loc_welcome': 'Welcome',
+    'loc_flag': 'flag_english.png',
 }
 
 localization_ru = {
@@ -20,6 +22,7 @@ localization_ru = {
     'loc_project_name': 'Глоссарий по-русски',
     'loc_selfname': 'Русский',
     'loc_welcome': 'Здравствуйте',
+    'loc_flag': 'flag_russian.png',
 }
 
 localizations = {

@@ -3,8 +3,8 @@ from server.localizations import localizations
 
 def language_context():
     langs = []
-    for code, localization in localizations.items():
-        langs.append({'code': code, 'selfname': localization['loc_selfname']})
+    for code, lc in sorted(localizations.items()):
+        langs.append({'code': code, 'selfname': lc['loc_selfname'], 'flag': lc['loc_flag']})
     return {'langs': langs}
 
 
