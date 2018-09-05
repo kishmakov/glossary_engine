@@ -3,6 +3,7 @@ from server.contexts import author_context, language_context, index_context
 from django.http import HttpResponse
 from django.template import loader
 
+
 def language_view(request):
     t = loader.get_template('language.html')
     return HttpResponse(t.render(language_context(), request))
