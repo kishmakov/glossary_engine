@@ -9,16 +9,9 @@
 <hr/>
 <div class="row">
     <div class="col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 col-6 col-offset-3 text-center align-middle">
-        <h2>{{ loc_compositions }}.</h2>
+        <h2>{{ text.name }}.</h2>
     </div>
 </div>
 <div class="row">
-    {% for text in texts %}
-    <a href='/{{ lang }}/{{ author.id }}/{{ text.id }}/'>
-        <div class="col-md-4 col-sm-6 text-center align-middle div-button">
-            <h3>{{ text.name }}</h3>
-        </div>
-    </a>
-    {% endfor %}
 </div>
 {% endblock %}

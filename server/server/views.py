@@ -1,4 +1,4 @@
-from server.contexts import author_context, language_context, index_context
+from server.contexts import author_context, language_context, index_context, text_context
 
 from django.http import HttpResponse
 from django.template import loader
@@ -17,5 +17,9 @@ def index_view(request, lang):
 def author_view(request, lang, author_id):
     t = loader.get_template('author.html')
     return HttpResponse(t.render(author_context(lang, author_id), request))
+
+def text_view(request, lang, author_id, text_id):
+    t = loader.get_template('text.html')
+    return HttpResponse(t.render(text_context(lang, author_id, text_id), request))
 
 

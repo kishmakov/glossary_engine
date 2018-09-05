@@ -102,33 +102,30 @@ def build_index(descriptions, lang):
         authors_builder.op('{').key('id').vals(id).key('name').vals(desc['name']).cl('}')
     authors_builder.cl(']')
 
-    author_builder = PyBuilder('author')
-    author_builder.op('{')
+    texts_builder = PyBuilder('texts')
+    texts_builder.op('{')
     for id, desc in sorted(authors.items()):
-        author_builder.key(id).op('{')
-        author_builder.key('name').vals(desc['name'])
-        author_builder.key('texts').op('[')
+        texts_builder.key(id).op('[')
         for text in desc['texts']:
-            author_builder.op('{')
-            author_builder.key('id').vals(text['id']).key('name').vals(text['name'])
-            author_builder.key('parts').op('{')
+            texts_builder.op('{')
+            texts_builder.key('id').vals(text['id']).key('name').vals(text['name'])
+            texts_builder.key('parts').op('{')
             for part_num, part_id in text['parts'].items():
-                author_builder.key(part_num).vals(part_id)
-            author_builder.cl('}')
-            author_builder.cl('}')
-        author_builder.cl(']')
-        author_builder.cl('}')
-    author_builder.cl('}')
+                texts_builder.key(part_num).vals(part_id)
+            texts_builder.cl('}')
+            texts_builder.cl('}')
+        texts_builder.cl(']')
+    texts_builder.cl('}')
 
     index_builder = PyBuilder('index')
     index_builder.op('{')
     index_builder.key('authors').val('authors')
-    index_builder.key('author').val('author')
+    index_builder.key('texts').val('texts')
     index_builder.cl('}')
 
     with open('index_{0}.py'.format(lang), 'w') as index_file:
         index_file.write(authors_builder.str)
-        index_file.write(author_builder.str)
+        index_file.write(texts_builder.str)
         index_file.write(index_builder.str)
 
 
