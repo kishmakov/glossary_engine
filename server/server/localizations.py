@@ -1,5 +1,22 @@
 localization_el = {
-    'loc_about': ['Καλημέρα'],
+    'loc_about': [
+        (
+            'Αυτός ο ιστότοπος είναι ένα περιτύλιγμα για ένα αποθετήριο '
+            '<a href="https://github.com/kishmakov/glossary_texts">glossary_texts</a>, '
+            'σχεδιασμένο για την απλότητα της ανάγνωσής του. Σε αυτό το αποθετήριο έχω '
+            'συγκεντρώσει το μέγιστο δυνατό αριθμό κειμένων που σχετίζονται με '
+            'το ορθόδοξο δόγμα χριστιανισμού.'
+        ),
+        (
+            'Ο στόχος του έργου είναι να κάνει τα κείμενα εύκολα να διαβαστούν και να σώσουν. '
+            'Μπορείτε να το συμβάλλετε κατά βούληση: είτε με '
+            '<a href="https://help.github.com/articles/about-pull-requests/">ποολ ρεκύεστ</a> '
+            ' είτε στέλνοντας το κείμενο απευθείας σε μένα.'
+        ),
+        (
+            'shmakir@yandex.ru'
+        )
+    ],
     'loc_authors_list': 'Κατάλογος συγγραφέων',
     'loc_compositions': 'Συνθέσεις',
     'loc_project_name': 'Γλωσσάριο στα ελληνικά',
@@ -10,14 +27,14 @@ localization_el = {
 localization_en = {
     'loc_about': [
         (
-            'This site is a wrapper for a repository '
+            'This site is a wrapper for repository '
             '<a href="https://github.com/kishmakov/glossary_texts">glossary_texts</a>, '
-            'designed for simplicity of its reading. In this repository I\'ve collected maximal '
+            'designed for convenience of its reading. In this repository I\'ve collected maximal '
             'possible number of texts, related to orthodox christianity doctrine.'
         ),
         (
-            'Repository is open for everyone who has interest. You can contribute to it at '
-            'will: either with '
+            'The goal of the project is to make texts easy to read and save. '
+            'You can contribute to it at will: either with '
             '<a href="https://help.github.com/articles/about-pull-requests/">pull request</a> '
             'or by sending the text directly to me.'
         ),
@@ -38,13 +55,13 @@ localization_en = {
 localization_ru = {
     'loc_about': [
         (
-            'Сайт представляет собой удобную для чтения обёртку над репозиторием текстов '
+            'Сайт представляет собой обёртку для чтения текстов репозитория '
             '<a href="https://github.com/kishmakov/glossary_texts">glossary_texts</a>. '
-            'В данном репозитории я попытался собрать в одном месте максимально возможное '
-            'множество текстов, имеющих интерес для изучения православного вероучения.'
+            'В данном репозитории я попытался собрать в одном месте максимальное '
+            'количество текстов, имеющих интерес для изучения православного вероучения.'
         ),(
-            'Репозиторий открыт для всех интересующихся. При желании вы можете помочь его расширению, '
-            'добавив в него новые тексты: или напрямую с помощью '
+            'Задумка проекта в том, чтобы сделать тексты удобными для чтения и сохранения. При желании '
+            'вы можете помочь, добавив в него новые тексты: или напрямую с помощью '
             '<a href="https://help.github.com/articles/about-pull-requests/">пулл реквеста</a>, '
             'или отослав их мне.'
         ),(
