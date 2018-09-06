@@ -1,5 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 {% load yandex_metrica %}
+{% load google_analytics %}
 
 <head>
     <title>{{ header }}</title>
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="/static/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="/static/main.css" type="text/css" />
     {% yandex_metrica %}
+    {% google_analytics %}
 </head>
 
 <body>
