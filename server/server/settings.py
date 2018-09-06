@@ -3,16 +3,7 @@ from secrets import *
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 ALLOWED_HOSTS = ['kirillshmakov.ru', '127.0.0.1', '94.19.249.9', '192.168.0.103']
-
 
 # Application definition
 
