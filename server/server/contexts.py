@@ -55,8 +55,8 @@ def index_context(lang):
 
 def author_context(lang, author_id):
     context, index = _get_lang_context(lang)
-    context['author'] = _get_by_id(index['author'], author_id)
-    context['header'] = context['authors']['name']
+    context['author'] = _get_by_id(index['authors'], author_id)
+    context['header'] = context['author']['name']
     if author_id not in index['texts']:
         raise Http404('Requested text "{0}" is not found for author "{1}".'.format(text_id, author_id))
 

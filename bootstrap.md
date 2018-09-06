@@ -16,6 +16,7 @@ source env/bin/activate
 python3 -m pip install --upgrade pip
 pip install Django
 pip install django-analytical
+pip install markdown
 ```
 
 ## Install and configure UWSGI
