@@ -109,10 +109,13 @@ def build_index(descriptions, lang):
         for text in desc['texts']:
             texts_builder.op('{')
             texts_builder.key('id').vals(text['id']).key('name').vals(text['name'])
-            texts_builder.key('parts').op('{')
+            texts_builder.key('parts').op('[')
             for part_num, part_id in text['parts'].items():
-                texts_builder.key(part_num).vals(part_id)
-            texts_builder.cl('}')
+                texts_builder.op('{')
+                texts_builder.key('number').vals(part_num)
+                texts_builder.key('id').vals(part_id)
+                texts_builder.cl('}')
+            texts_builder.cl(']')
             texts_builder.cl('}')
         texts_builder.cl(']')
     texts_builder.cl('}')
