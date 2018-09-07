@@ -53,12 +53,12 @@ def _get_text(index, author_id, text_id):
 
 
 def language_context():
-    return {'langs': _get_langs(list(localizations.keys()))}
+    return {'langs': _get_langs(sorted(list(localizations.keys())))}
 
 
 def index_context(lang):
     context, index = _get_lang_context(lang)
-    other_codes = list(indexes.keys())
+    other_codes = sorted(list(indexes.keys()))
     other_codes.remove(lang)
     context['other_langs'] = _get_langs(other_codes)
     context['authors'] = index['authors']
