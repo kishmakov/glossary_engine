@@ -3,9 +3,7 @@
 {% block navigation %}
 <div class="col-md-4 col-sm-6 align-middle">
     {% for lang in other_langs %}
-        <a href='/{{ lang.code }}/'>
-            <img src="/static/{{ lang.flag }}" style="height: 25px; vertical-align: middle"/>
-        </a>
+        <a href='/{{ lang.code }}/'><img src="/static/{{ lang.flag }}" style="height: 25px; vertical-align: middle"/></a>
     {% endfor %}
 </div>
 {% endblock %}
