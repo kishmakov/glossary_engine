@@ -14,7 +14,7 @@ def language_view(request):
 
 
 def index_view(request, lang):
-    t = loader.get_template('welcome.html')
+    t = loader.get_template('index.html')
     return HttpResponse(t.render(index_context(lang), request))
 
 

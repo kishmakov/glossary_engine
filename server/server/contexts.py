@@ -30,8 +30,21 @@ def _get_by_id(index, id):
 
     raise Http404('Id "{0}" is not corresponding index.'.format(author_id))
 
-def _get_text(index, author_id, text_id):
 
+def _get_langs(codes):
+    langs = []
+    for code in codes:
+        if code not in localizations:
+            print ('Error: code ' + code + ' not found in localizations')
+            continue
+
+        lc = localizations[code]
+        langs.append({'code': code, 'selfname': lc['loc_selfname'], 'flag': lc['loc_flag']})
+
+    return langs
+
+
+def _get_text(index, author_id, text_id):
     for text in index['texts'][author_id]:
         if text['id'] == text_id:
             return text
@@ -40,14 +53,14 @@ def _get_text(index, author_id, text_id):
 
 
 def language_context():
-    langs = []
-    for code, lc in sorted(localizations.items()):
-        langs.append({'code': code, 'selfname': lc['loc_selfname'], 'flag': lc['loc_flag']})
-    return {'langs': langs}
+    return {'langs': _get_langs(list(localizations.keys()))}
 
 
 def index_context(lang):
     context, index = _get_lang_context(lang)
+    other_codes = list(indexes.keys())
+    other_codes.remove(lang)
+    context['other_langs'] = _get_langs(other_codes)
     context['authors'] = index['authors']
     context['header'] = context['loc_project_name']
     return context
