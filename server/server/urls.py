@@ -4,7 +4,7 @@ from django.views.generic.base import RedirectView
 from server import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('', views.language_view),
     re_path(r'^(?P<lang>[a-z]{2})/$', views.index_view),
     re_path(r'^(?P<lang>[a-z]{2})/(?P<author_id>[\w_]+)/$', views.author_view),
