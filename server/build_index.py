@@ -99,7 +99,7 @@ def build_index(descriptions, lang):
     authors_builder = PyBuilder('authors')
     authors_builder.op('[')
     for id, desc in sorted(authors.items()):
-        authors_builder.op('{').key('id').vals(id).key('name').vals(desc['name']).cl('}')
+        authors_builder.op('{').key('id').vals(id).key('name').vals(desc['name']).cl('},')
     authors_builder.cl(']')
 
     texts_builder = PyBuilder('texts')
@@ -117,7 +117,7 @@ def build_index(descriptions, lang):
                 texts_builder.cl('}')
             texts_builder.cl(']')
             texts_builder.cl('}')
-        texts_builder.cl(']')
+        texts_builder.cl('],')
     texts_builder.cl('}')
 
     index_builder = PyBuilder('index')
