@@ -43,11 +43,17 @@ sudo ln -s /path/to/glossary_texts /usr/local/ge/server/gt
 
 ### Logrotate
 
-```
+```bash
 sudo ln -s /usr/local/ge/glossary_logrotate.conf /etc/logrotate.d/glossary
-sudo chown root:www-data /usr/local/ge/glossary_logrotate.conf
+sudo chown root:root /usr/local/ge/glossary_logrotate.conf
 sudo chmod 644 /usr/local/ge/glossary_logrotate.conf
 sudo chown www-data:www-data /var/log/glossary.log
+```
+
+Check it works:
+
+```bash
+sudo logrotate -d --force /etc/logrotate.d/glossary
 ```
 
 ## Start
