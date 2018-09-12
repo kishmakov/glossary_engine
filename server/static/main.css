@@ -66,6 +66,10 @@ div.div-button:focus {
     background-color: #d9edf7;
 }
 
+p.redfirst {
+    text-align: justify;
+}
+
 p.redfirst::first-letter {
     font-size: 300%;
     color: red;
