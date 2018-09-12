@@ -66,3 +66,9 @@ div.div-button:focus {
     background-color: #d9edf7;
 }
 
+p.redfirst::first-letter {
+    font-size: 300%;
+    color: red;
+    float: left;
+    margin-top: 0.125em;
+}
