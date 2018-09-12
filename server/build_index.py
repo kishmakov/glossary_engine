@@ -34,10 +34,10 @@ def parse_author(desc, lang):
 
 def parse_text(desc, lang):
     name = desc[lang]['name']
-    parts = {}
+    parts = []
     if 'parts' in desc[lang]:
-        for number, id in desc[lang]['parts'].items():
-            parts[number] = id
+        for part in desc[lang]['parts']:
+            parts.append(part)
 
     return {'name': name, 'parts': parts}
 
@@ -82,6 +82,11 @@ class PyBuilder:
         self.str += ' {0},\n'.format(value)
         return self
 
+    def key_vals(self, dictionary, keys):
+        for key in keys:
+            self.key(key).vals(dictionary[key])
+        return self
+
     def vals(self, value):
         self.str += ' "{0}",\n'.format(value)
         return self
@@ -110,10 +115,9 @@ def build_index(descriptions, lang):
             texts_builder.op('{')
             texts_builder.key('id').vals(text['id']).key('name').vals(text['name'])
             texts_builder.key('parts').op('[')
-            for part_num, part_id in text['parts'].items():
+            for part in text['parts']:
                 texts_builder.op('{')
-                texts_builder.key('number').vals(part_num)
-                texts_builder.key('id').vals(part_id)
+                texts_builder.key_vals(part, ['id', 'name', 'number'])
                 texts_builder.cl('}')
             texts_builder.cl(']')
             texts_builder.cl('}')

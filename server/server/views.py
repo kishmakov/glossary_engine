@@ -36,7 +36,7 @@ def read_view(request, lang, author_id, text_id, part_id):
     md_file = open(full_name, 'r')
     html_text = markdown.markdown( md_file.read() )
     html_text = html_text.replace('<p>', '<p class="redfirst">')
-    prefix = '{% extends "base.html" %} {% block content %}'
+    prefix = '{% extends "read.html" %} {% block text %}'
     suffix = '{% endblock %}'
     t = Template(prefix + html_text + suffix)
     return HttpResponse(t.render(Context(text_context(lang, author_id, text_id))))
