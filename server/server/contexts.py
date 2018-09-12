@@ -53,16 +53,19 @@ def _get_text(index, author_id, text_id):
 
 
 def language_context():
-    return {'langs': _get_langs(sorted(list(localizations.keys())))}
+    return {
+        'header': 'Choose your language',
+        'langs': _get_langs(sorted(list(localizations.keys())))
+    }
 
 
 def index_context(lang):
     context, index = _get_lang_context(lang)
+    context['header'] = context['loc_project_name']
     other_codes = sorted(list(indexes.keys()))
     other_codes.remove(lang)
     context['other_langs'] = _get_langs(other_codes)
     context['authors'] = index['authors']
-    context['header'] = context['loc_project_name']
     return context
 
 
@@ -78,10 +81,8 @@ def author_context(lang, author_id):
 
 def text_context(lang, author_id, text_id):
     context, index = _get_lang_context(lang)
-
     if author_id not in index['texts']:
         raise Http404('Requested author "{0}" is not found.'.format(author_id))
-
     context['author'] = _get_by_id(index['authors'], author_id)
     context['text'] = _get_by_id(index['texts'][author_id], text_id)
     context['header'] = context['text']['name']
