@@ -1,6 +1,6 @@
 ## Prerequisites
 
-nginx, python3.5
+nginx, python3.6
 
 ## Install virtualenv
 
@@ -23,10 +23,10 @@ pip install markdown
 
 ```bash
 sudo apt install uwsgi uwsgi-src uuid-dev libcap-dev libpcre3-dev
-export PYTHON=python3.5
-uwsgi --build-plugin "/usr/src/uwsgi/plugins/python python35"
-sudo mv python35_plugin.so /usr/lib/uwsgi/plugins/python35_plugin.so
-sudo chmod 644 /usr/lib/uwsgi/plugins/python35_plugin.so
+export PYTHON=python3.6
+uwsgi --build-plugin "/usr/src/uwsgi/plugins/python python36"
+sudo mv python36_plugin.so /usr/lib/uwsgi/plugins/python36_plugin.so
+sudo chmod 644 /usr/lib/uwsgi/plugins/python36_plugin.so
 ```
 
 ## Links
